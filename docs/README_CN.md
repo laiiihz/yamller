@@ -1,22 +1,20 @@
 # YAMMLER
 
-A library for generate dart file from yaml.
+从yaml配置文件生成dart配置文件
 
-[[简体中文]](./docs/README_CN.md)
+## 使用
 
-## Usage
-
-### install from pub
+### 从pub安装
 ```shell
 dart pub global activate yamller
 ```
 
-### commandline 
+### 命令行 
 ```shell
 yamller --files=[your config yaml file].yaml
 ```
 
-### example
+### 例子
 
 * yaml file (test.yaml)
 
@@ -40,7 +38,7 @@ flutter:
   uses-material-design: true
 ```
 
-* will generate dart file (test.dart)
+* 生成dart配置文件 (test.dart)
 
 ```dart
 // GENERATED CODE - DO NOT MODIFY BY HAND
@@ -112,27 +110,27 @@ class _Environment0 {
 }
 ```
 
-* config usage
+* 配置文件使用
 
 ```dart
 final String name = Test.name; // test_pubspec
 final String sdk = Test.environment.sdk; // >=2.12.0 <3.0.0
 ```
 
-## API usage
+## API 使用
 
 [yamller API documentation](https://pub.dev/documentation/yamller/latest/)
 
-## RoadMap
+## 里程碑
 
 * 0.1.0
-  * [ ] more config options
-  * [ ] generate code using `build_runner`
+  * [ ] 更多配置选项
+  * [ ] 使用 `build_runner` 生成代码
 * 0.2.0
-  * [ ] support Yaml List 
+  * [ ] 支持 Yaml List 
 
-## Features and bugs
+## 功能和问题
 
-Please file feature requests and bugs at the [issue tracker][tracker].
+[issue tracker][tracker]
 
 [tracker]: https://github.com/laiiihz/yamller/issues
