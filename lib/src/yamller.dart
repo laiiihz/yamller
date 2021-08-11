@@ -7,9 +7,10 @@ import 'package:recase/recase.dart';
 
 class Yamller {
   int _identifer = 0;
-  String baseClassName = '';
-  List<Class> classes = [];
+  String _baseClassName = '';
+  final _classes = <Class>[];
 
+  ///generate codes
   @override
   String toString() {
     final buffer = StringBuffer();
@@ -20,19 +21,20 @@ class Yamller {
 // https://github.com/laiiihz/yamller
 // https://pub.dev/packages/yamller
 // **************************************************************************''');
-    for (var item in classes) {
+    for (var item in _classes) {
       buffer.writeln(item.accept(DartEmitter()).toString());
     }
     return DartFormatter().format(buffer.toString());
   }
 
   ///parse file to YamlMap
-  ///
   Future<YamlMap> parse(File file) async {
-    baseClassName = file.absolute.uri.pathSegments.last.replaceAll('.yaml', '');
+    _baseClassName =
+        file.absolute.uri.pathSegments.last.replaceAll('.yaml', '');
     return loadYaml(await file.readAsString());
   }
 
+  ///parse file classes
   void toClass(YamlMap map, [bool isSub = false, String className = '']) {
     var baseFields = <Field>[];
 
@@ -67,10 +69,10 @@ class Yamller {
     }
 
     var single = Class((c) => c
-      ..name = isSub ? className : baseClassName.pascalCase
+      ..name = isSub ? className : _baseClassName.pascalCase
       ..constructors.add(Constructor((con) => con.constant = true))
       ..fields.addAll(baseFields));
-    classes.insert(0, single);
+    _classes.insert(0, single);
   }
 
   Field _toField(String key, dynamic value, [bool isSub = false]) {
