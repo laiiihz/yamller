@@ -1,6 +1,6 @@
 name: yamller
 description: A library for generate dart file from yaml.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/laiiihz/yamller
 
 environment:
@@ -16,3 +16,6 @@ dependencies:
   recase: ^4.0.0
   yaml: ^3.1.0
   path: ^1.8.0
+
+executables:
+  yamller:
