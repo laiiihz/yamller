@@ -121,6 +121,14 @@ final String sdk = Test.environment.sdk; // >=2.12.0 <3.0.0
 
 [yamller API documentation](https://pub.dev/documentation/yamller/latest/)
 
+## RoadMap
+
+* 0.1.0
+  * [ ] more config options
+  * [ ] generate code using `build_runner`
+* 0.2.0
+  * [ ] support Yaml List 
+
 ## Features and bugs
 
 Please file feature requests and bugs at the [issue tracker][tracker].
